@@ -1,5 +1,7 @@
 import operator
 import matplotlib.pyplot as plt
+import math
+import numpy as np
 
 
 def plot(points, path):
@@ -19,9 +21,9 @@ def plot(points, path):
         plt.arrow(x[i], y[i], x[j] - x[i], y[j] - y[i], color='r', length_includes_head=True)
 
     # noinspection PyTypeChecker
-    plt.xlim(0, max(x) * 1.1)
+   # plt.xlim(0, max(x) * 1.1)
     # noinspection PyTypeChecker
-    plt.ylim(0, max(y) * 1.1)
+    #plt.ylim(0, max(y) * 1.1)
     plt.show()
 
 def plot2(points):
@@ -41,13 +43,4 @@ def plot2(points):
     print(x)
     print(y)
 
-points = []
-cities = []
-with open('data1.txt') as f:
-    for line in f.readlines():
-        city = line.split(' ')
-        cities.append(dict(index=int(city[0]), x=int(city[1]), y=int(city[2])))
-        points.append((int(city[1]), int(city[2])))
-print(points)
-plot2(points)
 
