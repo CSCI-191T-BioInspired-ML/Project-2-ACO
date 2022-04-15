@@ -2,7 +2,7 @@ import operator
 import matplotlib.pyplot as plt
 
 
-def plot(points, path, cost, type):
+def plot_path(points, path, cost, type):
     x = []
     y = []
     for point in points:
