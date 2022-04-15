@@ -1,8 +1,7 @@
 #Nearest neighbor heuristic
-from matplotlib.image import composite_images
 import numpy as np
+from numpy import inf
 from cities import Cities
-import math
 
 class NN(object):
 
@@ -10,9 +9,7 @@ class NN(object):
         self.cities = graph
         self.numCities = size
         self.bestPath = []
-        self.bestCost = math.inf
-        self.unvisited = [i for i in range(self.numCities)]    #unvisited cities that can still be visited
-
+        self.bestCost = inf
 
     def solveNN(self):
         visited=np.zeros(self.numCities)
@@ -27,22 +24,24 @@ class NN(object):
             path = []
             cost = 0
         return (self.bestPath, self.bestCost)
-        # print("Cost: ", self.bestCost)
-        # print("Path: ", self.bestPath)
+
+    def solveForCity(self, start: int):
+        visited=np.zeros(self.numCities)
+        path = []
+        cost = 0
+        (curCost, curPath) = self.nearestNeighbor(start, self.cities, visited, path, cost)
+        return (curCost, curPath)
+
 
     def minEdge(self, cost_matrix, startIndex, visited):
-        minEdge = 1000000000
+        minEdge = inf
         edgeIndex = 0
         for i in range(self.numCities):
             curEdge = cost_matrix[startIndex][i]
             if curEdge != 0:
-               # try:
-                    #self.unvisited.index(i)
                 if curEdge < minEdge and visited[i]==0:
                     minEdge = curEdge
                     edgeIndex = i
-               # except ValueError: 
-                #    pass
 
         return (edgeIndex, minEdge)
 
