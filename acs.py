@@ -74,5 +74,6 @@ class ACS(object):
             bestAnt = 0
         
         bestSolution.append(bestSolution[0])        # Appends start city onto the path 
+        cities.resetPheromones()
         return bestSolution, minCost
 
