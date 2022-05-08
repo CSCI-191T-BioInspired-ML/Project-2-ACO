@@ -53,6 +53,7 @@ class AS(object):
             self.updatePheromone(cities, ants)
         
         bestSolution.append(bestSolution[0])        # Appends start city onto the path 
+        cities.resetPheromones()
         return bestSolution, minCost
 
 
