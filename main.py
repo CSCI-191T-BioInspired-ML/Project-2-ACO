@@ -29,9 +29,6 @@ start = time.time()
 pathACS, costACS = antColonyACS.solveACS(graph)
 runTimeACS = time.time() - start
 
-# Resets pheromones of the graph back to default values
-#graph.resetPheromones()
-
 start = time.time()
 pathAS, costAS = antColonyAS.solveAS(graph)
 runTimeAS = time.time() - start
